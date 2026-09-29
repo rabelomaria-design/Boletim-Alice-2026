@@ -1,0 +1,298 @@
+/* ============================================================
+   BOLETIM DIGITAL — style.css
+   Visual: rosa e branco, fofo, com gatinhos e laços em CSS
+   Fonte: Playwrite BE WAL Guides (com linhas de caderno)
+   ============================================================ */
+
+/* ---------- VARIÁVEIS DE COR ---------- */
+:root {
+  --rosa-bebe: #ffe4ef;      /* fundo geral */
+  --rosa-claro: #ffd0e2;     /* fundo dos cards secundários */
+  --rosa-chiclete: #ff69b4;  /* cor principal dos detalhes */
+  --rosa-escuro: #d94a8c;    /* cor de destaque/ texto forte */
+  --branco: #ffffff;
+  --cinza-texto: #5a3a4a;
+  --sombra-rosa: 0 6px 16px rgba(255, 105, 180, 0.20);
+}
+
+/* ---------- RESET BÁSICO ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- CORPO ---------- */
+body {
+  font-family: 'Playwrite BE WAL Guides', cursive;
+  background-color: var(--rosa-bebe);
+  /* Bolinhas fofas no fundo */
+  background-image:
+    radial-gradient(var(--rosa-claro) 2px, transparent 2px),
+    radial-gradient(var(--rosa-claro) 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  color: var(--cinza-texto);
+  line-height: 1.8;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+/* ---------- CABEÇALHO ---------- */
+.cabecalho {
+  background-color: var(--branco);
+  border: 3px dashed var(--rosa-chiclete);
+  border-radius: 24px;
+  padding: 28px 16px 24px;
+  text-align: center;
+  position: relative;
+  box-shadow: var(--sombra-rosa);
+  margin-bottom: 24px;
+}
+
+.cabecalho h1 {
+  color: var(--rosa-escuro);
+  font-size: 2rem;
+  margin-bottom: 6px;
+  /* A fonte Playwrite não tem negrito, então usamos tamanho + sombra */
+  text-shadow: 2px 2px 0 var(--rosa-bebe);
+}
+
+.subtitulo {
+  color: var(--rosa-chiclete);
+  font-size: 1.1rem;
+}
+
+/* ---------- LAÇO FEITO EM CSS ---------- */
+.laco {
+  position: relative;
+  width: 60px;
+  height: 34px;
+  margin: 0 auto 10px;
+}
+
+/* As duas "orelhinhas" do laço */
+.laco-esquerda,
+.laco-direita {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: var(--rosa-chiclete);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 2px solid var(--rosa-escuro);
+}
+
+.laco-esquerda {
+  left: 0;
+  transform: rotate(-25deg);
+}
+
+.laco-direita {
+  right: 0;
+  transform: rotate(25deg);
+}
+
+/* O nó central do laço */
+.laco-noh {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--rosa-escuro);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+.conteudo {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ---------- CARDS DE RESUMO ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background-color: var(--branco);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 20px;
+  padding: 18px 14px;
+  text-align: center;
+  box-shadow: var(--sombra-rosa);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+/* Emoji fofo no cantinho de cada card */
+.card::before {
+  content: attr(data-emoji);
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 1.3rem;
+}
+
+/* Laço pequeno no topo de cada card */
+.card::after {
+  content: "🎀";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+}
+
+.card-titulo {
+  font-size: 0.95rem;
+  color: var(--rosa-chiclete);
+  margin-bottom: 8px;
+}
+
+.card-valor {
+  font-size: 1.6rem;
+  color: var(--rosa-escuro);
+  text-shadow: 1px 1px 0 var(--rosa-bebe);
+}
+
+.card-extra {
+  font-size: 0.8rem;
+  color: var(--cinza-texto);
+  margin-top: 4px;
+}
+
+/* ---------- TÍTULO DA TABELA ---------- */
+.titulo-tabela {
+  color: var(--rosa-escuro);
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 0 var(--rosa-bebe);
+}
+
+/* ---------- TABELA RESPONSIVA ---------- */
+.tabela-container {
+  overflow-x: auto;                /* rola no celular */
+  background-color: var(--branco);
+  border: 3px dashed var(--rosa-chiclete);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: var(--sombra-rosa);
+  margin-bottom: 32px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabela-boletim {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 620px;                /* garante que não fique espremida */
+}
+
+.tabela-boletim th,
+.tabela-boletim td {
+  padding: 10px 8px;
+  text-align: center;
+  border-bottom: 1px solid var(--rosa-claro);
+  font-size: 0.88rem;
+}
+
+.tabela-boletim th {
+  background-color: var(--rosa-chiclete);
+  color: var(--branco);
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+}
+
+/* Linha alternada para facilitar leitura */
+.tabela-boletim tbody tr:nth-child(even) {
+  background-color: #fff5fa;
+}
+
+.tabela-boletim tbody tr:hover {
+  background-color: var(--rosa-bebe);
+}
+
+/* Alinhamento do nome da disciplina à esquerda */
+.tabela-boletim td:first-child,
+.tabela-boletim th:first-child {
+  text-align: left;
+}
+
+/* ---------- ETIQUETAS DE SITUAÇÃO ---------- */
+.situacao {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.situacao-bom {
+  background-color: #d8f5d8;
+  color: #2d7a2d;
+  border: 1px solid #8dd88d;
+}
+
+.situacao-atencao {
+  background-color: #ffe0e0;
+  color: #b23a3a;
+  border: 1px solid #ff9b9b;
+}
+
+.situacao-sem-nota {
+  background-color: #ececec;
+  color: #777;
+  border: 1px solid #c9c9c9;
+}
+
+/* Nota ausente em itálico e cinza */
+.nota-ausente {
+  color: #aaa;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* ---------- RODAPÉ ---------- */
+.rodape {
+  text-align: center;
+  padding: 20px 10px;
+  color: var(--rosa-chiclete);
+  font-size: 0.9rem;
+}
+
+/* ---------- AJUSTES PARA CELULAR ---------- */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitulo {
+    font-size: 0.95rem;
+  }
+
+  .card-valor {
+    font-size: 1.3rem;
+  }
+
+  .titulo-tabela {
+    font-size: 1.15rem;
+  }
+
+  .tabela-boletim th,
+  .tabela-boletim td {
+    padding: 8px 6px;
+    font-size: 0.8rem;
+  }
+}
