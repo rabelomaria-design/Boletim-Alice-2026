@@ -1,1 +1,65 @@
-meu boletim
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boletim Digital</title>
+
+  <!-- Fonte fofa Playwrite Belgique Wallonie-Bruxelles Guides -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+BE+WAL+Guides&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cabeçalho com título, laço CSS e subtítulo -->
+  <header class="cabecalho">
+    <!-- Laço decorativo feito só com CSS -->
+    <div class="laco" aria-hidden="true">
+      <span class="laco-esquerda"></span>
+      <span class="laco-noh"></span>
+      <span class="laco-direita"></span>
+    </div>
+
+    <h1>🐱 Boletim Digital 🎀</h1>
+    <p class="subtitulo">9º Ano • Estudante Exemplo</p>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- Área dos cards de resumo (preenchida pelo JS) -->
+    <section class="cards" id="cards"></section>
+
+    <!-- Título da tabela -->
+    <h2 class="titulo-tabela">📚 Notas por Disciplina</h2>
+
+    <!-- Tabela responsiva -->
+    <div class="tabela-container">
+      <table class="tabela-boletim">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>1º Tri</th>
+            <th>2º Tri</th>
+            <th>3º Tri</th>
+            <th>Média</th>
+            <th>Faltas</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <tbody id="corpo-tabela"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Rodapé fofo -->
+  <footer class="rodape">
+    <p>Feito com 💗 por Estudante Exemplo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
