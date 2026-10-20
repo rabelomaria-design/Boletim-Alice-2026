@@ -24,33 +24,60 @@
     </div>
 
     <h1>🐱 Boletim Digital 🎀</h1>
-    <p class="subtitulo">9º Ano • Estudante Exemplo</p>
+    <p class="subtitulo">9º Ano • Turma 9C • Chamada 23</p>
   </header>
 
   <main class="conteudo">
 
-    <!-- Área dos cards de resumo (preenchida pelo JS) -->
-    <section class="cards" id="cards"></section>
+    <!-- ÁREA DE LOGIN POR PIN -->
+    <section class="card-login" id="area-login">
+      <h2>🔐 Acesso ao Boletim</h2>
+      <p class="info-aluno">Turma: <strong>9C</strong> | Chamada: <strong>23</strong></p>
+      
+      <div class="form-pin">
+        <label for="input-pin">Digite seu PIN:</label>
+        <input type="password" id="input-pin" maxlength="10" placeholder="••••" autocomplete="off" />
+        <button type="button" id="btn-entrar" class="btn-principal">Entrar</button>
+      </div>
+      
+      <p id="msg-login" class="mensagem-status" aria-live="polite"></p>
+    </section>
 
-    <!-- Título da tabela -->
-    <h2 class="titulo-tabela">📚 Notas por Disciplina</h2>
+    <!-- PAINEL DO BOLETIM (OCULTO ATÉ O LOGIN) -->
+    <div id="painel-boletim" style="display: none;">
 
-    <!-- Tabela responsiva -->
-    <div class="tabela-container">
-      <table class="tabela-boletim">
-        <thead>
-          <tr>
-            <th>Disciplina</th>
-            <th>1º Tri</th>
-            <th>2º Tri</th>
-            <th>3º Tri</th>
-            <th>Média</th>
-            <th>Faltas</th>
-            <th>Situação</th>
-          </tr>
-        </thead>
-        <tbody id="corpo-tabela"></tbody>
-      </table>
+      <!-- AÇÕES DE EDIÇÃO -->
+      <div class="barra-acoes">
+        <button type="button" id="btn-alterar" class="btn-secundario">Alterar dados</button>
+        <button type="button" id="btn-salvar" class="btn-principal" style="display: none;">Salvar alterações</button>
+        <button type="button" id="btn-cancelar" class="btn-cancelar" style="display: none;">Cancelar</button>
+      </div>
+      <p id="msg-edicao" class="mensagem-status" aria-live="polite"></p>
+
+      <!-- Área dos cards de resumo (preenchida pelo JS) -->
+      <section class="cards" id="cards"></section>
+
+      <!-- Título da tabela -->
+      <h2 class="titulo-tabela">📚 Notas por Disciplina</h2>
+
+      <!-- Tabela responsiva -->
+      <div class="tabela-container">
+        <table class="tabela-boletim">
+          <thead>
+            <tr>
+              <th>Disciplina</th>
+              <th>1º Tri</th>
+              <th>2º Tri</th>
+              <th>3º Tri</th>
+              <th>Média</th>
+              <th>Faltas</th>
+              <th>Situação</th>
+            </tr>
+          </thead>
+          <tbody id="corpo-tabela"></tbody>
+        </table>
+      </div>
+
     </div>
 
   </main>
